@@ -34,8 +34,10 @@ const Homescreen = ({navigation}) => {
 
     const Item = ({ title }) => (
         <View>
+
             <Text style={Styles.script}>{title.name}</Text>
             <Text style={Styles.script}>{title.price}</Text>
+            
         </View>
     );
     return (
