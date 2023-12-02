@@ -4,8 +4,9 @@ import Homescreen from './src/HomeScreen';
 import App_run from './src/TabNavigator';
 import Services_Add from './src/Services';
 import Service_Details from './src/ServiceDetails'
-export default App =()=>{
+const App =()=>{
   return( 
-   <Service_Details/>
+   <App_run/>
   )
 }
+export default  App;

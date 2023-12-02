@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import 'react-native-gesture-handler';
-import { SafeAreaView, Text, View, ScrollView, FlatList } from 'react-native'
+import { SafeAreaView, Text, View, ScrollView, FlatList, TouchableOpacity } from 'react-native'
 import styles from './Styles';
 import { Button } from "react-native-paper";
 import Styles from "./Styles";
@@ -34,10 +34,10 @@ const Homescreen = ({navigation}) => {
 
     const Item = ({ title }) => (
         <View>
-
+          <TouchableOpacity  onPress={()=> navigation.navigate('Service_Details', {_id:title._id})}>
             <Text style={Styles.script}>{title.name}</Text>
             <Text style={Styles.script}>{title.price}</Text>
-            
+            </TouchableOpacity>
         </View>
     );
     return (

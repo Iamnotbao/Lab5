@@ -1,4 +1,4 @@
-import  React from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
@@ -7,6 +7,8 @@ import 'react-native-gesture-handler';
 import Homescreen from './HomeScreen';
 import LoginScreen from './Login';
 import Services_Add from './Services';
+import Service_Details from './ServiceDetails';
+import Service_Edit from './Service_Update';
 
 const Stack = createStackNavigator();
 // funtion LoginScreen() {
@@ -31,18 +33,18 @@ function LoginScreens() {
             <Stack.Screen
                 name="LoginScreen"
                 component={LoginScreen}
-            
+
             />
-             <Stack.Screen
+            <Stack.Screen
                 name="HomeScreen"
                 component={MyTabs}
-                
+
             />
-            
+
         </Stack.Navigator>
     )
 }
-function HomeScreen_Run(){
+function HomeScreen_Run() {
     return (
         <Stack.Navigator
             initialRouteName="HomeScreen"
@@ -52,14 +54,21 @@ function HomeScreen_Run(){
             screenOptions={{
                 headerShown: false
             }}
->
-            <Stack.Screen 
-            name="Home"
-            component={Homescreen}
+        >
+            <Stack.Screen
+                name="Home"
+                component={Homescreen}
             />
             <Stack.Screen
-            name="Services"
-            component={Services_Add}/>
+                name="Services"
+                component={Services_Add} />
+            <Stack.Screen
+                name="Service_Details"
+                component={Service_Details} />
+            <Stack.Screen
+                name="Service_Edit"
+                component={Service_Edit}
+            />
 
         </Stack.Navigator>
     )
@@ -67,40 +76,40 @@ function HomeScreen_Run(){
 
 
 const Tab = createMaterialBottomTabNavigator();
-function MyTabs(){
+function MyTabs() {
     return (
         <Tab.Navigator
-        initialRouteName='HomeScreen_Run'
-         barStyle= {{backgroundColor : "blue"}}
+            initialRouteName='HomeScreen_Run'
+            barStyle={{ backgroundColor: "blue" }}
         // labeled={false}
         // activeTintColor={"greyLight"}
         // inactiveColor={"greyDark"}
         >
-        <Tab.Screen name ="Home"
-         component={HomeScreen_Run}
-         options={{
-            tabBarIcon: 'format-list-bulleted',
-         }}
-/>
-<Tab.Screen
-name="Transaction"
-component={Services_Add}
-/>
-<Tab.Screen
-name="Customer"
-component={Homescreen}
-/>
-<Tab.Screen
-name="Setting"
-component={Homescreen}
-/>
+            <Tab.Screen name="Home"
+                component={HomeScreen_Run}
+                options={{
+                    tabBarIcon: 'format-list-bulleted',
+                }}
+            />
+            <Tab.Screen
+                name="Transaction"
+                component={Services_Add}
+            />
+            <Tab.Screen
+                name="Customer"
+                component={Homescreen}
+            />
+            <Tab.Screen
+                name="Setting"
+                component={Homescreen}
+            />
         </Tab.Navigator>
     )
 }
- const App_run =()=> {
+const App_run = () => {
     return (
         <NavigationContainer>
-            <LoginScreens/>
+            <LoginScreens />
         </NavigationContainer>
     );
 }
