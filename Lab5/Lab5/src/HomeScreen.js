@@ -4,14 +4,23 @@ import { SafeAreaView, Text, View, ScrollView, FlatList, TouchableOpacity } from
 import styles from './Styles';
 import { Button } from "react-native-paper";
 import Styles from "./Styles";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 
 const Homescreen = ({navigation}) => {
     const [data, setData] = useState([])
+    const value = AsyncStorage.getItem('token')
+    console.log(value);
     const filePath = 'https://kami-backend-5rs0.onrender.com/services'
     useEffect(() => {
-        fetch(filePath)
+        fetch(filePath,{
+            method:'GET',
+            headers:{
+                'Authoriztion':`Bearer ${value} `,
+                'Content-Type':'application/json'
+            },
+        })
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('NetWork response was not ok')

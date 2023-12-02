@@ -4,9 +4,10 @@ import Homescreen from './src/HomeScreen';
 import App_run from './src/TabNavigator';
 import Services_Add from './src/Services';
 import Service_Details from './src/ServiceDetails'
+
 const App =()=>{
   return( 
-   <App_run/>
+   <LoginScreen/>
   )
 }
 export default  App;
